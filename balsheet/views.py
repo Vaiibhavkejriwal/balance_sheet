@@ -8,12 +8,17 @@ from core.services.file_download import download_file
 from balsheet.models import BalanceSheet
 from core.constants import Constants
 from balsheet.services.bal_sheet_to_csv import PdfToCsvBalSheet
+from balsheet.services.bal_sheet_service import BalSheetService
 
 
 class Balsheet(View):
     def get(self, request):
+        query_year = request.GET.get('queryYear')
+        query_variable = request.GET.get('queryVariable')
+        service = BalSheetService()
+        uploaded_balsheets = service.get_balance_sheet(
+            query_year, query_variable)   
         form = BalSheetUploadForm()
-        uploaded_balsheets = BalanceSheet.objects.order_by("-created_at").all()
         return render(request,
                       'base.html',
                       {"form": form, "uploaded_balsheets": uploaded_balsheets})
