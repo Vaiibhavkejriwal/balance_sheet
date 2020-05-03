@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('balsheet/', include('balsheet.urls'))
+    path('file/', include('balsheet.urls'))
 ]
