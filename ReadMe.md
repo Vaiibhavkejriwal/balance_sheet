@@ -24,5 +24,7 @@ Project Setup
 - Migrate the changes into database using python manage.py migrate
 - Run the loca server using python manage.py runserver
 - Go to url http://127.0.0.1:8000/file/balsheet
+- QueryParameter can be used to filter the data based on query year and query variable
+- http://127.0.0.1:8000/file/balsheet?queryYear=2020&queryVariable=test
 
 
