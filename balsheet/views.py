@@ -31,4 +31,8 @@ class Balsheet(View):
             )
         balance_sheet.save()
 
-        return render(request, 'base.html', {'form': form})
+        uploaded_balsheets = BalanceSheet.objects.order_by("-created_at").all()
+
+        return render(request,
+                      'base.html',
+                      {'form': form, 'uploaded_balsheets': uploaded_balsheets})

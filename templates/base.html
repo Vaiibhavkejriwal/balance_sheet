@@ -60,6 +60,31 @@
                     </div>
             </form>
         </div>
+        <div class="uploaded_balsheet">
+            <h2>Your Submitted Balance Sheet</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Query Year</th>
+                        <th>Query Varaible</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if uploaded_balsheets %}
+                    {% for balsheet in uploaded_balsheets %}
+                    <tr>
+                        <td>{{balsheet.input_file_name}}</td>
+                        <td>{{balsheet.query_year}}</td>
+                        <td>{{balsheet.query_variable}}</td>
+                        <td>{{balsheet.id}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>  
+            </table>
+        </div>
     </div>
 </div>
 </body>
